@@ -35,7 +35,6 @@ struct CharacterDetail: Codable {
     }
 }
 
-
 // MARK: - OriginPlanet
 struct OriginPlanet: Codable {
     let id: Int
@@ -44,6 +43,16 @@ struct OriginPlanet: Codable {
     let description: String
     let image: String
     let deletedAt: String?
+    
+    // Inicializador por defecto
+    init(id: Int = 0, name: String = "", isDestroyed: Bool = false, description: String = "", image: String = "", deletedAt: String? = nil) {
+        self.id = id
+        self.name = name
+        self.isDestroyed = isDestroyed
+        self.description = description
+        self.image = image
+        self.deletedAt = deletedAt
+    }
 }
 
 // MARK: - Transformation
@@ -53,5 +62,14 @@ struct Transformation: Codable {
     let image: String
     let ki: String
     let deletedAt: String?
+    
+    // Inicializador por defecto
+    init(id: Int = 0, name: String = "", image: String = "", ki: String = "", deletedAt: String? = nil) {
+        self.id = id
+        self.name = name
+        self.image = image
+        self.ki = ki
+        self.deletedAt = deletedAt
+    }
 }
 

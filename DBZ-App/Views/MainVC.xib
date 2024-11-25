@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainVC" customModule="DBZ_App" customModuleProvider="target">
             <connections>
+                <outlet property="collectionCharacters" destination="hvl-0g-Mib" id="TID-63-hBK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,25 +19,42 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xai-wD-BCF">
-                    <rect key="frame" x="168.33333333333334" y="412.33333333333331" width="56.666666666666657" height="27.666666666666686"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DBZ API" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSd-Rc-5fy">
+                    <rect key="frame" x="158.33333333333334" y="79" width="76.666666666666657" height="21.666666666666671"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hvl-0g-Mib">
+                    <rect key="frame" x="5" y="115.66666666666669" width="383" height="692.33333333333326"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pGJ-Sa-V3e">
+                        <size key="itemSize" width="150" height="200"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+            <color key="backgroundColor" systemColor="systemMintColor"/>
             <constraints>
-                <constraint firstItem="Xai-wD-BCF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="n74-F3-hNr"/>
-                <constraint firstItem="Xai-wD-BCF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oPm-bI-ifW"/>
+                <constraint firstItem="hvl-0g-Mib" firstAttribute="top" secondItem="kSd-Rc-5fy" secondAttribute="bottom" constant="15" id="17e-jF-nhT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hvl-0g-Mib" secondAttribute="bottom" constant="10" id="Atq-3g-KRs"/>
+                <constraint firstItem="kSd-Rc-5fy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Fwf-Ya-o1J"/>
+                <constraint firstItem="hvl-0g-Mib" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="T2I-0Y-zar"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hvl-0g-Mib" secondAttribute="trailing" constant="5" id="qOD-2Q-7EG"/>
+                <constraint firstItem="kSd-Rc-5fy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vWn-rQ-2bZ"/>
             </constraints>
-            <point key="canvasLocation" x="105" y="-11"/>
+            <point key="canvasLocation" x="104.58015267175573" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

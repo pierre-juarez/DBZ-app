@@ -24,6 +24,8 @@ class NetworkManager{
             return
         }
         
+        print("url", url)
+        
         let task = URLSession.shared.dataTask(with: url){data, response, error in
             
             if let error = error {
@@ -36,11 +38,12 @@ class NetworkManager{
                 return
             }
             
-            do{
+            do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(T.self, from: data)
                 completion(.success(decodedData))
-            }catch{
+            } catch {
+                print("Error falided decode: ", error)
                 completion(.failure(error))
             }
             
