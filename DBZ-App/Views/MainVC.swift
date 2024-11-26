@@ -11,8 +11,8 @@ class MainVC: UIViewController {
     
     
     private var viewModel = CharacterViewModel()
-    private var characters: [CharacterDBZ] = []
-    private var characterDetail = CharacterDetail()
+    private var characters: [CharacterModel] = []
+    private var characterDetail : CharacterModel?
     
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
     
@@ -20,10 +20,17 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var collectionCharacters: UICollectionView!
     
-    static func loadFromNib() -> MainVC{
+    /*static func loadFromNib() -> MainVC{
         return MainVC(nibName: nil, bundle: nil)
+    }*/
+    
+    init(){
+        super.init(nibName: "MainVC", bundle: nil)
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +49,7 @@ class MainVC: UIViewController {
     
     // MARK: getData
     private func fetchData(){
-        viewModel.getCharacters(page: 1, limit: 10) { result in
+        viewModel.getCharacters(page: 1, limit: 30) { result in
             switch result {
             case .success(let characters):
                 self.characters = characters
@@ -82,7 +89,7 @@ extension MainVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InitialCell", for: indexPath) as? InitialCell {
             let character = characters[indexPath.row]
-            cell.configure(name: character.name, imgUrl: character.image)
+            cell.configure(name: character.name, imgUrl: character.imgUrl)
             return cell
         } else {
             fatalError("Unable to dequeue InitialCell")

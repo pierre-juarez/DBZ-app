@@ -15,7 +15,7 @@ enum NetworkError: Error{
 class NetworkManager{
     
     static let shared = NetworkManager()
-    private let baseURL = "https://dragonball-api.com/api"
+    private let baseURL = "https://dragonball-api.com/api" // TODO: Environment
     
     func fetchData<T: Decodable>(endpoint: String, responseType: T.Type, completion: @escaping(Result<T, Error>) -> Void){
         

@@ -13,10 +13,12 @@ class DetailCharacterVC: UIViewController {
     @IBOutlet weak var imgCharacter: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var lblPlanet: UILabel!
+
     
     let activityIndicator = UIActivityIndicatorView(style: .medium)
     
-    var characterDetail: CharacterDetail?
+    var characterDetail: CharacterModel?
     
     
     override func viewDidLoad() {
@@ -27,9 +29,10 @@ class DetailCharacterVC: UIViewController {
             imgCharacter.image = nil
             lblName.text = character.name
             lblDescription.text = character.description
+            lblPlanet.text = "Planeta: \(character.originalPlanet?.name ?? "")"
             activityIndicator.startAnimating()
             
-            ImageDownloader.shared.downloadImage(from: character.image) { [weak self] result in
+            ImageDownloader.shared.downloadImage(from: character.imgUrl) { [weak self] result in
                 DispatchQueue.main.async {
                     guard let self = self else { return }
                     self.activityIndicator.stopAnimating()
@@ -50,8 +53,8 @@ class DetailCharacterVC: UIViewController {
        
        private func setupActivityIndicator() {
            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-           activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5) // Aumenta el tamaño
-           imgCharacter.addSubview(activityIndicator) // Lo añades dentro de `imgCharacter` para centrarlo
+           activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+           imgCharacter.addSubview(activityIndicator) 
            
            NSLayoutConstraint.activate([
                activityIndicator.centerXAnchor.constraint(equalTo: imgCharacter.centerXAnchor),

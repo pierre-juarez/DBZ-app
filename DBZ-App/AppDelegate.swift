@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = initialVC
         window?.makeKeyAndVisible()
         **/
-        window = UIWindow.configInitialWindow()
+        //window = UIWindow.configInitialWindow()
         return true
     }
 

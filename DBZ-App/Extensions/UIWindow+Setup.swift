@@ -15,8 +15,8 @@ extension UIWindow{
             window = UIWindow(frame: UIScreen.main.bounds)
         }
         
-        //let rootVC = ViewController(nibName: "MainVC", bundle: nil)
-        let rootVC = MainVC.loadFromNib()
+        let rootVC = MainVC()
+        //let rootVC = MainVC.loadFromNib()
         
         let navigationController = UINavigationController(rootViewController: rootVC)
         
